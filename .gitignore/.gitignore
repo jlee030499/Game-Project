@@ -1,0 +1,314 @@
+int stage; // 1. is the Start 2. is the game 3. is the end 
+String s = "Press any button to start";
+int captureTime;
+int secondTime;
+int thirdTime;
+String a = "Great job! You have patience!";
+String b = "Press any key for Level 2";
+String c = "just don't touch anything, pls :)";
+String d = "you failed such simple instructions, good job";
+String e = "Game Over"; 
+String f ="follow this simple rule for the entire game and you win!";
+int x; 
+int y; 
+int vx;
+int vy;
+
+int x1, y2;
+
+void setup(){
+  size(1000,800);
+  stage = 1;
+  x = 300;
+  y = 300;
+  vx = 30;
+  vy = -30;
+  x1= 500;
+  y2= 300;
+
+}
+
+void draw(){
+ if(stage == 1){
+background(255);
+textSize(30);
+ textAlign(CENTER,CENTER);
+ text(s, 500,400);
+
+//top row 
+ fill(212);
+ rect(0,0,1000,25);
+ rect(975,0,25,25);
+ rect(950,0,25,25);
+ rect(925,0,25,25);
+//2nd row 
+ rect(0,25,1000,25);
+ rect(15,28,900,18);
+ fill(255,0,0);
+ ellipse(930,37,13,13);
+ fill(0);
+ line(945,45,945,28);
+ fill(200);
+ ellipse(960,37,13,13);
+ fill(0);
+ rect(980,30,3,3);
+ rect(980,35,3,3);
+ rect(980,40,3,3);
+ line(980,3,995,18);
+ line(980,18,995,3);
+ noFill();
+ rect(955,5,15,15);
+ stroke(55);
+ //tabs 
+ line(930,10,945,10);
+ line(100,5,100,20);
+ line(200,5,200,20);
+ line(300,5,300,20);
+ line(310,8,310,15); 
+ line(305,11,315,11);
+ 
+ } else if (stage == 2){
+ background(255);
+ fill(212);
+ rect(0,0,1000,25);
+ rect(975,0,25,25);
+ rect(950,0,25,25);
+ rect(925,0,25,25);
+//2nd row 
+ rect(0,25,1000,25);
+ rect(15,28,900,18);
+ fill(255,0,0);
+ ellipse(930,37,13,13);
+ fill(0);
+ line(945,45,945,28);
+ fill(200);
+ ellipse(960,37,13,13);
+ fill(0);
+ rect(980,30,3,3);
+ rect(980,35,3,3);
+ rect(980,40,3,3);
+ line(980,3,995,18);
+ line(980,18,995,3);
+ noFill();
+ rect(955,5,15,15);
+ stroke(55);
+ //tabs 
+ line(930,10,945,10);
+ line(100,5,100,20);
+ line(200,5,200,20);
+ line(300,5,300,20);
+ line(310,8,310,15); 
+ line(305,11,315,11);
+ 
+ textSize(30);
+ textAlign(CENTER,CENTER);
+ text(c, 500,400);
+ textSize(10);
+  text(f, 500,500);
+
+int myTime = millis();
+
+if(myTime - captureTime >5000){
+  stage = 4; 
+  } 
+   //game
+ }else if (stage == 3){
+  background(255,0,0);
+  background(255,0,0);
+  textAlign(CENTER,CENTER);
+  textSize(30);
+  text(d,500,400);
+  text(e,500,350);
+ //gameover screen
+  } else if (stage == 4){
+    background(0,255,0);
+  textSize(50);
+  textAlign(CENTER,CENTER);
+  text(a,500,300);
+  textSize(15);
+  text("Press any button to continue to Level 2", 500,500);
+    }else if (stage ==5){
+    background(255);
+  fill(212);
+  rect(0, 0, 1000, 25);
+  rect(975, 0, 25, 25);
+  rect(950, 0, 25, 25);
+  rect(925, 0, 25, 25);
+  //2nd row 
+  rect(0, 25, 1000, 25);
+  rect(15, 28, 900, 18);
+  fill(255, 0, 0);
+  ellipse(930, 37, 13, 13);
+  fill(0);
+  line(945, 45, 945, 28);
+  fill(200);
+  ellipse(960, 37, 13, 13);
+  fill(0);
+  rect(980, 30, 3, 3);
+  rect(980, 35, 3, 3);
+  rect(980, 40, 3, 3);
+  line(980, 3, 995, 18);
+  line(980, 18, 995, 3);
+  noFill();
+  rect(955, 5, 15, 15);
+  stroke(55);
+  //tabs 
+  line(930, 10, 945, 10);
+  line(100, 5, 100, 20);
+  line(200, 5, 200, 20);
+  line(300, 5, 300, 20);
+  line(310, 8, 310, 15); 
+  line(305, 11, 315, 11);
+
+fill(255,0,0);
+  ellipse(x, y, 100, 100);
+
+  //ellipse
+  x= x+vx;
+  y= y+vy;
+  
+  if (y<=0 || y>=800) {
+    vy =vy * -1;
+  }//more than 0 and less than 1000 are the boundry 
+  if (x<=30 || x>=1000) {
+    vx = vx * -1;
+  }
+
+textSize(50);
+textAlign(CENTER,CENTER);
+    text("Catch the red ball",500,400);
+textSize(20);
+    text("if you do, i'll give you the secret krabby patty formula",500,600);
+
+
+int secondTime = millis();
+
+if(secondTime - captureTime >15000){
+  stage = 7; 
+  } 
+    }else if (stage == 6){
+     background(255,0,0);
+
+fill(0);
+textSize(30);
+textAlign(CENTER,CENTER);
+text("were you really paying attention?",500,400);
+textSize(20);
+text("i said, don't touch anything",500,500);
+textSize(15);
+text("i even asked nicely :(", 500,600);
+textSize(50);
+text("GAMEOVER",500,300);
+    }else if (stage == 7){
+    background(0,255,0);
+ fill(0);
+ textSize(40);
+ textAlign(CENTER,CENTER);
+ text("NICE!",500,300);
+ textSize(20);
+ text("good to know you can follow directions", 500,400);
+ textSize(12);
+ text("you have no idea how many people don't listen", 500,500);
+ text("press any key to move on to the final level",500,600);
+ 
+    }else if (stage == 8){
+       background(255);
+  fill(212);
+  rect(0, 0, 1000, 25);
+  rect(975, 0, 25, 25);
+  rect(950, 0, 25, 25);
+  rect(925, 0, 25, 25);
+  //2nd row 
+  rect(0, 25, 1000, 25);
+  rect(15, 28, 900, 18);
+  fill(255, 0, 0);
+  ellipse(930, 37, 13, 13);
+  fill(0);
+  line(945, 45, 945, 28);
+  fill(200);
+  ellipse(960, 37, 13, 13);
+  fill(0);
+  rect(980, 30, 3, 3);
+  rect(980, 35, 3, 3);
+  rect(980, 40, 3, 3);
+  line(980, 3, 995, 18);
+  line(980, 18, 995, 3);
+  noFill();
+  rect(955, 5, 15, 15);
+  stroke(55);
+  //tabs 
+  line(930, 10, 945, 10);
+  line(100, 5, 100, 20);
+  line(200, 5, 200, 20);
+  line(300, 5, 300, 20);
+  line(310, 8, 310, 15); 
+  line(305, 11, 315, 11);
+
+fill(0);
+textSize(30);
+text("your final task, should you choose to accept it ", 500,300);
+textSize(20);
+text("is to do nothing and sit in silence for 4 min",500,400); 
+textSize(13);
+text("click or press any button if u give up", 500,450);
+text("but if you remain patient, you are special! especially in a society that can't keep still", 500,700);
+textSize(10);
+text("i'm a troll, sorry",500,650);
+
+int thirdTime = millis();
+
+if(thirdTime - captureTime >255000){
+  stage = 10; 
+  }
+
+     
+    }else if (stage ==9){
+ background(255,0,0);
+ 
+ fill(0);
+ textSize(30);
+ textAlign(CENTER,CENTER);
+ text("GAMEOVER",500,300);
+ text("Don't worry, I knew you couldn't do it",500,400);
+ textSize(20);
+ text("i know your time is precious", 500,500);
+ textSize(15);
+ text("so i apologize for wasting your time", 500,600);
+    }else if (stage == 10){
+     background(0,255,0);
+
+
+fill(0);
+textSize(30);
+textAlign(CENTER,CENTER);
+text("nice!",500,300);
+text("you are a very patient",500,400);
+textSize(20);
+text("now be free!", 500, 500);
+    }
+}
+
+void mouseReleased(){
+  if(stage == 2){
+    stage = 3;     
+  }else if (stage ==3){
+    stage = 4;
+  }else if (stage == 5){
+    stage = 6;
+  } else if (stage == 8){
+    stage = 9;
+  }
+    
+}
+
+void keyPressed(){
+  if(stage == 1){
+    stage = 2;
+  } else if (stage == 4){
+    stage = 5;
+  }else if (stage == 7 ){
+    stage = 8;
+  }else if (stage == 8){
+    stage = 9;
+  }
+}
